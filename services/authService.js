@@ -48,8 +48,8 @@ module.exports = exports = function (UserModel, TokenModel) {
 	/*LDAP strategy */
 	var OPTS = {
 		server: {
-			url: 'ldap://bluepages.ibm.com:389',
-			searchBase: 'ou=bluepages,o=ibm.com',
+			url: 'ldap://----',
+			searchBase: '----',
 			searchFilter: '(mail={{username}})'
 		}
 	};
