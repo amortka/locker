@@ -1,0 +1,23 @@
+{
+	"name": "adamLocker",
+	"version": "1.0.0",
+	"description": "my locker app",
+	"main": "app.js",
+	"scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "BSD-2-Clause",
+	"dependencies": {
+		"express": "~4.1.2",
+		"bcrypt-nodejs": "~0.0.3",
+		"body-parser": "~1.11.0", 
+		"mongoose": "3.8.22",
+		"node-uuid": "1.4.2",
+		"passport": "0.2.1",
+		"passport-http": "0.2.2",
+		"passport-http-bearer": "1.0.1",
+		"passport-ldapauth": "0.2.4",
+		"passport-local": "1.0.0"
+	}
+}
