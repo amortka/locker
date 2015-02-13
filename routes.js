@@ -1,11 +1,11 @@
 var express = require('express');
 
-var BeerModel = require('./models/beerModel');
+var ItemModel = require('./models/itemModel');
 var TokenModel = require('./models/tokenModel');
 var UserModel = require('./models/userModel');
 
 var authController = require('./controllers/authController')(UserModel, TokenModel);
-var beerController = require('./controllers/beerController')(BeerModel);
+var itemController = require('./controllers/itemController')(ItemModel);
 var userController = require('./controllers/userController')(UserModel);
 
 var authService = require('./services/authService.js')(UserModel, TokenModel);
@@ -14,20 +14,20 @@ var router = express.Router();
 
 router.get('/', function (req, res) {
 	res.json({
-		message: 'You are running dangerously low on beer!'
+		message: 'You are running dangerously low on item!'
 	});
 });
 
-//* ---- Beers ---- ----  *//
-router.route('/beers')
-	.post(authService.isTokenValid, authService.isInRole('admin'), beerController.postBeers)
-	.get(authService.isTokenValid, authService.isInRole('user'), beerController.getBeers);
+//* ---- Items ---- ----  *//
+router.route('/items')
+	.post(authService.isTokenValid, authService.isInRole('admin'), itemController.postItems)
+	.get(authService.isTokenValid, authService.isInRole('user'), itemController.getItems);
 
-// Create endpoint handlers for /beers/:beer_id
-router.route('/beers/:beer_id')
-	.get(authService.isTokenValid, beerController.getBeer)
-	.put(authService.isTokenValid, beerController.putBeer)
-	.delete(authService.isTokenValid, beerController.deleteBeer);
+// Create endpoint handlers for /items/:item_id
+router.route('/items/:item_id')
+	.get(authService.isTokenValid, itemController.getItem)
+	.put(authService.isTokenValid, itemController.putItem)
+	.delete(authService.isTokenValid, itemController.deleteItem);
 
 //* ---- Users ---- ----  *//
 router.route('/users')

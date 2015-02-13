@@ -105,7 +105,7 @@ module.exports = exports = function (UserModel, TokenModel) {
 					// Simple example with no scope
 					callback(null, user, {
 						tokenExpire: tokenExpire,
-						access: '*todo*'
+						access: '*'
 					});
 				});
 			});

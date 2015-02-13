@@ -10,7 +10,7 @@ module.exports = exports = function (UserModel) {
 				res.send(err);
 
 			res.json({
-				message: 'New beer drinker added to the locker room!'
+				message: 'New user added to the L.O.C.K.E.R!'
 			});
 		});
 	};

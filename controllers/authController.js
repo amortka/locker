@@ -12,7 +12,7 @@ module.exports = exports = function (UserModel, TokenModel) {
 		// Create new token
 		var newToken = uuid.v4();
 		var validDate = new Date();
-		validDate.setTime(validDate.getTime() + (5 * 1000 * 60));
+		validDate.setTime(validDate.getTime() + (24 * 60 * 1000 * 60));
 
 		// Update token for the user
 		TokenModel.findOneAndUpdate({
@@ -39,7 +39,7 @@ module.exports = exports = function (UserModel, TokenModel) {
 
 	exports.notAuthenticated = function (req, res) {
 		res.status(403).json({
-			message: 'not authenticated'
+			message: 'not authenticated...'
 		});
 	};
 
@@ -58,7 +58,7 @@ module.exports = exports = function (UserModel, TokenModel) {
 					if (token.date > now) {
 
 						var validDate = new Date();
-						validDate.setTime(validDate.getTime() + (60 * 24 * 1000 * 60));
+						validDate.setTime(validDate.getTime() + (24 * 60 * 1000 * 60));
 
 						token.date = validDate;
 						token.save(function (err) {
@@ -92,7 +92,6 @@ module.exports = exports = function (UserModel, TokenModel) {
 		}
 
 	};
-
 
 	return exports;
 };
