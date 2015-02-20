@@ -4,20 +4,18 @@ var bodyParser = require('body-parser');
 var router = require('./routes');
 var passport = require('passport');
 
+var port = process.env.PORT || 8080;
+var ip = process.env.IP;
+var dbURI = 'mongodb://'+ip+'/itemlocker'
 
-mongoose.connect('mongodb://localhost:27017/itemlocker');
+mongoose.connect(dbURI);
 
 var app = express();
 
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
-
-var port = process.env.PORT || 3000;
-
-
 app.use(passport.initialize());
-
 app.use('/api', router);
 
 app.listen(port);

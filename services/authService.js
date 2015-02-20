@@ -48,8 +48,8 @@ module.exports = exports = function (UserModel, TokenModel) {
 	/*LDAP strategy */
 	var OPTS = {
 		server: {
-			url: 'ldap://----',
-			searchBase: '----',
+			url: '**',
+			searchBase: '**',
 			searchFilter: '(mail={{username}})'
 		}
 	};
@@ -126,7 +126,7 @@ module.exports = exports = function (UserModel, TokenModel) {
 		}
 	};
 
-	exports.isAuthenticated = passport.authenticate('ldapauth', {
+	exports.isAuthenticated = passport.authenticate('local', {
 		session: false,
 		failureRedirect: '/api/notAuthenticated'
 	});
